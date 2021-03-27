@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "./components/Header";
-import EmployeeList from "./components/EmployeeList";
+
+import Container from "./components/Container/index";
+
 
 function App() {
   return (
     <div>
-      <Header />
-      <EmployeeList />
+      <Container />
     </div>
   );
 }
