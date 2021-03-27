@@ -60,6 +60,7 @@ class Container extends Component {
                     handleSearch={this.handleSearch}
                     handleInputChange={this.handleInputChange} />
                 <EmployeeData
+                    results={this.state.searchByLastName}
                     sortByLastName={this.sortByLastName} />
             </div>
         )
