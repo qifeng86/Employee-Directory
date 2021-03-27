@@ -21,12 +21,6 @@ function SearchBox(props) {
                                 placeholder="Search by last name" />
                         </div>
                         <br></br>
-                        <div>
-                            <button
-                                type="submit"
-                                onClick={props.handleSearch}>Search</button>
-                        </div>
-                        <br></br>
                     </div>
                 </div>
             </header>
