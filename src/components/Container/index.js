@@ -9,7 +9,8 @@ class Container extends Component {
     state = {
         search: "",
         employees: [],
-        searchByLastName: []
+        searchByLastName: [],
+        searchByFirstName: []
 
     };
 
@@ -17,7 +18,8 @@ class Container extends Component {
     componentDidMount() {
         API.search().then(res => this.setState({
             employees: res.data.results,
-            searchByLastName: res.data.results
+            searchByLastName: res.data.results,
+            searchByFirstName: res.data.results
         })).catch(err => console.log(err))
     }
 
@@ -43,12 +45,33 @@ class Container extends Component {
     }
 
 
+    sortByFirstName = () => {
+        const search = this.state.searchByFirstName;
+        if (this.state.employee === "asc") {
+            const sortby = search.sort((a, b) => (a.name.first > b.name.first) ? 1 : -1)
+            this.setState({
+                sortByFirstName: sortby,
+                employee: "desc"
+            })
+        } else {
+
+            const sortby = search.sort((a, b) => (a.name.first > b.name.first) ? -1 : 1)
+            this.setState({
+                sortByFirstName: sortby,
+                employee: "asc"
+            })
+
+        }
+    }
+
+
     handleInputChange = event => {
         const employees = this.state.employees;
-        const searchByLastName = employees.filter(employee => employee.name.last.toLowerCase().indexOf(event.target.value.toLowerCase()) > -1
-        )
+        const searchByLastName = employees.filter(employee => employee.name.last.toLowerCase().indexOf(event.target.value.toLowerCase()) > -1)
+        const searchByFirstName = employees.filter(employee => employee.name.first.toLowerCase().indexOf(event.target.value.toLowerCase()) > -1)
         this.setState({
             searchByLastName,
+            searchByFirstName
         });
     };
 
@@ -61,6 +84,7 @@ class Container extends Component {
                     handleInputChange={this.handleInputChange} />
                 <EmployeeData
                     results={this.state.searchByLastName}
+                    sortByFirstName={this.sortByFirstName}
                     sortByLastName={this.sortByLastName} />
             </div>
         )

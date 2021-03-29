@@ -8,7 +8,7 @@ function EmployeeData(props) {
             <thead>
                 <tr>
                     <th></th>
-                    <th>First Name</th>
+                    <th className="sort-by" onClick={props.sortByFirstName}>First Name</th>
                     <th className="sort-by" onClick={props.sortByLastName}>Last Name</th>
                     <th>Phone</th>
                     <th>Email</th>
