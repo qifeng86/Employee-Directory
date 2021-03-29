@@ -9,8 +9,7 @@ class Container extends Component {
     state = {
         search: "",
         employees: [],
-        searchByLastName: [],
-        employee: ""
+        searchByLastName: []
 
     };
 
@@ -42,6 +41,7 @@ class Container extends Component {
 
         }
     }
+
 
     handleInputChange = event => {
         const employees = this.state.employees;
