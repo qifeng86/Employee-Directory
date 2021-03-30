@@ -33,7 +33,7 @@ App is listening on port 3000 when running on local machine. Run the following c
 
 - `npm start`
 
-App is deployed on Heroku and also supports offline access. Access via link below:
+App is deployed on Heroku. Access via link below:
 
 [https://safe-atoll-98586.herokuapp.com/]
 
